@@ -14,7 +14,7 @@ Config_Generator.open_port(data['port'])
 
 
 data_file = open("/usr/local/V2ray.Fun/v2ray.config","w")
-data_file.write(json.dumps(data))
+data_file.write(json.dumps(data, indent=2))
 data_file.close()
 
 Config_Generator.gen_server()
