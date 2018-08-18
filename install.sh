@@ -132,10 +132,9 @@ sed -i "s/%%username%%/${un}/g" /usr/local/V2ray.Fun/panel.config
 sed -i "s/%%passwd%%/${pw}/g" /usr/local/V2ray.Fun/panel.config
 sed -i "s/%%port%%/${uport}/g" /usr/local/V2ray.Fun/panel.config
 chmod 777 /etc/v2ray/config.json
-supervisord -c /etc/supervisor/supervisord.conf
-echo "supervisord -c /etc/supervisor/supervisord.conf">>/etc/rc.local
-chmod +x /etc/rc.local
-sudo systemctl enable rc-local.service
+sudo ln -s /etc/systemd/system/multi-user.target.wants/supervisor.service /etc/systemd/system/supervisor.service
+sudo systemctl enable supervisor.service
+service supervisor start
 
 echo "安装成功！
 "
