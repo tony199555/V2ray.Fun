@@ -48,11 +48,11 @@ if [ ${OS} == CentOS ];then
 	pip install pyOpenSSL
 fi
 
-if [ ${Debian_version} == 9 ];then
-	wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/V2ray.Fun/master/enable-debian9-rclocal.sh
-	bash enable-debian9-rclocal.sh
-	rm enable-debian9-rclocal.sh
-fi
+# if [ ${Debian_version} == 9 ];then
+	# wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/V2ray.Fun/master/enable-debian9-rclocal.sh
+	# bash enable-debian9-rclocal.sh
+	# rm enable-debian9-rclocal.sh
+# fi
 
 #Install acme.sh
 curl https://get.acme.sh | sh
@@ -62,7 +62,7 @@ curl -L -s https://install.direct/go.sh | bash
 
 #Install V2ray.Fun
 cd /usr/local/
-git clone https://github.com/mingxin0130/V2ray.Fun
+git clone https://github.com/FunctionClub/V2ray.Fun
 
 
 #Generate Default Configurations
@@ -133,6 +133,7 @@ chmod 777 /etc/v2ray/config.json
 supervisord -c /etc/supervisor/supervisord.conf
 echo "supervisord -c /etc/supervisor/supervisord.conf">>/etc/rc.local
 chmod +x /etc/rc.local
+sudo systemctl enable rc-local.service
 
 echo "安装成功！
 "
@@ -144,4 +145,4 @@ echo "输入 v2ray 并回车可以手动管理网页面板相关功能"
 
 #清理垃圾文件
 rm -rf /root/config.json
-rm -rf /root/install-debian.sh
+rm -rf /root/install.sh
