@@ -133,9 +133,9 @@ chmod 777 /etc/v2ray/config.json
 #supervisord -c /etc/supervisor/supervisord.conf
 #echo "supervisord -c /etc/supervisor/supervisord.conf">>/etc/rc.local
 #chmod +x /etc/rc.local
-sudo cp /usr/local/v2ray.fun/supervisord.service /etc/systemd/system/supervisord.service
-sudo systemctl enable supervisord.service
-service supervisord start
+sudo ln -s /etc/systemd/system/multi-user.target.wants/supervisor.service /etc/systemd/system/supervisor.service
+sudo systemctl enable supervisor.service
+service supervisor start
 
 echo "安装成功！
 "
