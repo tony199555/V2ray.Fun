@@ -32,6 +32,11 @@ else
   kill -9 $$
 fi
 
+#Install V2ray.Fun
+cd /usr/local/
+git clone https://github.com/FunctionClub/V2ray.Fun
+cd /usr/local/V2ray.fun
+
 #Install Needed Packages
 
 if [ ${OS} == Ubuntu ] || [ ${OS} == Debian ];then
@@ -49,21 +54,11 @@ if [ ${OS} == CentOS ];then
 	pip install supervisor
 fi
 
-# if [ ${Debian_version} == 9 ];then
-	# wget -N --no-check-certificate https://raw.githubusercontent.com/FunctionClub/V2ray.Fun/master/enable-debian9-rclocal.sh
-	# bash enable-debian9-rclocal.sh
-	# rm enable-debian9-rclocal.sh
-# fi
-
 #Install acme.sh
 curl https://get.acme.sh | sh
 
 #Install V2ray
 curl -L -s https://install.direct/go.sh | bash
-
-#Install V2ray.Fun
-cd /usr/local/
-git clone https://github.com/FunctionClub/V2ray.Fun
 
 #Generate Default Configurations
 cd /usr/local/V2ray.Fun/ && python init.py
