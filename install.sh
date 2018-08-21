@@ -38,14 +38,15 @@ if [ ${OS} == Ubuntu ] || [ ${OS} == Debian ];then
 	apt-get update -y
 	apt-get install wget curl socat git unzip python python-dev openssl libssl-dev ca-certificates supervisor -y
 	wget -O - "https://bootstrap.pypa.io/get-pip.py" | python
+	pip install -r requirements.txt
 fi
 
 if [ ${OS} == CentOS ];then
 	yum install epel-release -y
 	yum install python-pip python-devel socat ca-certificates openssl unzip git curl crontabs wget -y
 	pip install --upgrade pip
-	pip install flask requests urllib3 Flask-BasicAuth supervisor Jinja2 requests six wheel
-	pip install pyOpenSSL
+	pip install -r requirements.txt
+	pip install supervisor
 fi
 
 # if [ ${Debian_version} == 9 ];then
