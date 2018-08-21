@@ -35,7 +35,7 @@ fi
 #Install V2ray.Fun
 cd /usr/local/
 git clone https://github.com/FunctionClub/V2ray.Fun
-cd /usr/local/V2ray.fun
+cd /usr/local/V2ray.Fun
 
 #Install Needed Packages
 
