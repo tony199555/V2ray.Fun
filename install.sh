@@ -35,7 +35,6 @@ fi
 #Install V2ray.Fun
 cd /usr/local/
 git clone https://github.com/FunctionClub/V2ray.Fun
-cd /usr/local/V2ray.Fun
 
 #Install Needed Packages
 
@@ -43,14 +42,14 @@ if [ ${OS} == Ubuntu ] || [ ${OS} == Debian ];then
 	apt-get update -y
 	apt-get install wget curl socat git unzip python python-dev openssl libssl-dev ca-certificates supervisor -y
 	wget -O - "https://bootstrap.pypa.io/get-pip.py" | python
-	pip install -r requirements.txt
+	pip install -r /usr/local/V2ray.Fun/requirements.txt
 fi
 
 if [ ${OS} == CentOS ];then
 	yum install epel-release -y
 	yum install python-pip python-devel socat ca-certificates openssl unzip git curl crontabs wget -y
 	pip install --upgrade pip
-	pip install -r requirements.txt
+	pip install -r /usr/local/V2ray.Fun/requirements.txt
 	pip install supervisor
 fi
 
